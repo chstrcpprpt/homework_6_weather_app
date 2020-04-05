@@ -93,7 +93,7 @@ function clearForecast() {
 
   // ==================== run OpenWeather API ====================
 function getWeather() {  
-  fetch(`http://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=${apiKey}&units=metric`)
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=${apiKey}&units=metric`)
   .then(function(response) {
     return response.json();
   })
