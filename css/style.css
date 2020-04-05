@@ -1,0 +1,261 @@
+/* ==================== general ==================== */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,400,400i,700,900&display=swap');
+
+:root {
+  font-size: 16px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+html {
+  height: 100%;
+}
+
+/* ==================== layout ==================== */
+
+body {
+  display: grid;
+  grid: auto-flow /  minmax(1em, 2fr) minmax(auto, 2.5fr)  minmax(auto, 7.5fr) minmax(1em, 2fr);
+  grid-row-gap: 1em;
+
+ min-height: 100%;
+ background: rgb(0, 0, 0);
+}
+
+/* ==================== header ==================== */
+header, footer {
+  grid-column: 1 / -1;
+  
+  background: rgb(255, 255, 255)
+  color: rgb(0, 0, 0);
+
+  display: grid;
+  place-items: center;
+}
+
+header {
+  height: 200px;
+  background: rgb(255, 255, 255)
+}
+
+.form-search {
+  display: flex;
+}
+
+.btn-search {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  align-self: flex-end;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+#input-search {
+  font-family: 'Montserrat', sans-serif;
+  border: none;
+  background: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+
+  text-align: center;
+  font-size: 6rem;
+  font-weight: 700;
+
+  width: 100%;
+
+}
+
+#input-search:focus {
+  outline: none;
+}
+
+.fa-search {
+  color: rgb(0, 0, 0);
+}
+
+
+/* ==================== aside ==================== */
+aside {
+  grid-column: 2 / 3;
+  /* min-height: 500px; */
+  flex-grow: 1;
+  flex-shrink: 1;
+
+  background: rgb(136, 136, 136);
+  padding: 1rem;
+  border-radius: 20px 0 0 20px;
+}
+
+.search-items {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 1rem;
+  cursor: pointer;
+}
+
+
+/* ==================== main ==================== */
+main {
+  grid-column: 3 / 4;
+  /* min-height: 500px; */
+  flex-grow: 1;
+  flex-shrink: 1;
+
+  background: rgb(225, 225, 225);
+  padding: 1rem;
+  border-radius: 0 20px 20px 0;
+}
+
+.current-weather {
+  color: black;
+}
+
+/* -------------------- current weather grid --------------------- */
+.current-date {
+  grid-area: c-date;
+}
+
+.current-icon {
+  grid-area: c-icon;
+}
+
+.current-temp {
+  grid-area: c-temp;
+}
+
+.current-humidity {
+  grid-area: c-hum;
+}
+
+.current-windspd {
+  grid-area: c-ws;
+}
+
+.current-uv {
+  grid-area: c-uv;
+}
+
+.current-weather-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-areas:
+    ". c-date c-date c-date c-date ."
+    ". c-icon c-icon c-icon c-icon ."
+    ". c-temp c-temp c-ws c-ws ."
+    ". c-hum c-hum c-uv c-uv ."
+    ;
+  grid-row-gap: 1rem;
+
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.current-data {
+  display: grid;
+  place-items: center;
+}
+
+p {
+  text-align: center;
+}
+
+.date {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.current-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  display:inline-block;
+  padding-top: 0.5rem;
+}
+
+/* -------------------- forecast container -------------------- */
+.forecast-container {
+  display: grid;
+  grid: auto-flow /  repeat(5, 1fr);
+  grid-column-gap: 1em;
+}
+
+.f-date {
+  grid-area: f-date;
+  font-size: 1rem;
+}
+
+.f-icon {
+  grid-area: f-icon;
+}
+
+.f-temp {
+  grid-area: f-temp;
+}
+
+.f-hum {
+  grid-area: f-hum;
+}
+
+.fcDays {
+  background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  font-size: 0.75rem;
+  border-radius: 10px;
+
+  display: grid;
+  grid-template-columns: 0.5rem 1fr 0.5rem;
+  grid-template-areas:
+    ". f-date ."
+    ". f-icon ."
+    ". f-temp ."
+    ". f-hum ."
+    ;
+  place-items: center;
+  grid-row-gap: 1rem;
+
+  padding: 0.5rem;
+
+}
+
+.fc-value {
+  font-size: 1rem;
+  font-weight: 700;
+  display:inline-block;
+  padding-top: 0.3rem;
+}
+
+/* ==================== footer ==================== */
+footer {
+  height: 50px;
+  background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  margin-top: auto;
+}
+
+/* ==================== media queries ==================== */
+@media (max-width: 500px) {
+  body {
+    grid: auto-flow /  minmax(1em, 2fr) minmax(auto, 10fr) minmax(1em, 2fr);
+  }
+
+  main {
+    grid-column: 2 / 3;
+    border-radius: 20px;
+  }
+
+  aside {
+    border-radius: 20px;
+  }
+
+  .search-items {
+    grid-column: 2 / 3;
+  }
+}
